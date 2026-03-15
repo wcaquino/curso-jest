@@ -9,8 +9,7 @@ module.exports = {
         }
     },
     collectCoverageFrom: [
-        'src/**/*.js',
-        '!src/pedidos/pedidos.js'
+        'src/**/*.js'
     ],
     reporters: [
         "default",

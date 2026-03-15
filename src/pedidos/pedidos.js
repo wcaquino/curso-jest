@@ -51,3 +51,42 @@ export const aplicarDesconto = (valor, obterAliquota) => {
     const aliquota = obterAliquota(novoValor)
     return novoValor * aliquota
 }
+
+export const consultaPrecoProduto2 = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const produto = pedidosAtivos.find(p => p.id == id)
+            if(produto) {
+                resolve(produto.valor)
+            } else {
+                reject('Produto não encontrado')
+            }
+        }, 500)
+    })
+}
+
+export const consultaPrecoProduto3 = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const produto = pedidosAtivos.find(p => p.id == id)
+            if(produto) {
+                resolve(produto.valor)
+            } else {
+                reject('Produto não encontrado')
+            }
+        }, 500)
+    })
+}
+
+export const consultaPrecoProduto4 = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const produto = pedidosAtivos.find(p => p.id == id)
+            if(produto) {
+                resolve(produto.valor)
+            } else {
+                reject('Produto não encontrado')
+            }
+        }, 500)
+    })
+}
