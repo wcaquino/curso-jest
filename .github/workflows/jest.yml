@@ -1,0 +1,37 @@
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      statuses: write
+
+    steps:
+    - name: Copiando o código do repositório
+      uses: actions/checkout@v4
+
+    - name: Configurando o Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Instalando dependências
+      run: npm install
+
+    - name: Executando os testes
+      run: npm run test:ci
+
+    - name: Publicar Relatório de Testes
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: Relatório de Testes Jest
+        path: reports/junit.xml
+        reporter: jest-junit
